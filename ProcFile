@@ -1,2 +1,2 @@
-cd payments
+release: cd payments
 web: gunicorn payments.wsgi

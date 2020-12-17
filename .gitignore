@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 masknet/media/*
 masknet/mask_weights/yolo_weights.h5
+.vscode/
