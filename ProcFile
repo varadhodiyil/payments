@@ -1,0 +1,2 @@
+cd payments
+web: gunicorn payments.wsgi

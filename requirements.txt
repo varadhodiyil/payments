@@ -4,3 +4,6 @@ django-rest-swagger==2.2.0
 djangorestframework==3.11.1
 drf-yasg==1.17.1
 stripe
+pylint-django
+gunicorn
+django-heroku
