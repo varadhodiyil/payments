@@ -41,6 +41,7 @@ urlpatterns = [
     url(r'^redoc/$', schema_view.with_ui('redoc',
                                          cache_timeout=0), name='schema-redoc'),
 	path('users/',include('payments.users.urls')),
-	path('auth/',include('payments.auth_tokens.urls'))
+	path('auth/',include('payments.auth_tokens.urls')),
+	path('payments/',include('payments.stripe_payments.urls'))
 
 ]
