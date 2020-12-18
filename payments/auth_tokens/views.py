@@ -10,6 +10,9 @@ class LoginAPI(GenericAPIView):
     serializer_class = serializers.LoginSerializer
 
     def post(self, request, *args, **kwargs):
+        """
+                Login with creds, return Token
+        """
 
         data = request.data
         s = self.get_serializer(data=data)
