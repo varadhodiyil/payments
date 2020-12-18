@@ -168,7 +168,10 @@ if not os.path.exists(MEDIA_ROOT):
 
 STRIPE_API_KEY = "sk_test_51HygI3BjPTNvMQM4IlYOQPA0BAXIYGLIgH826QhHTlQQaljRQtyOAVCHt8H3IohjfN4iUvTkil799aW3E3PQVq5y00dG1X6tdW"
 
-env = getattr(os.environ,'HOME', '')
+env = getattr(os.environ,'HOME', '/app')
 if '/app' in env:
     import django_heroku
     django_heroku.settings(locals())
+
+
+STATIC_ROOT = os.path.join(BASE_DIR , 'static')
