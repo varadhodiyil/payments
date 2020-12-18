@@ -51,7 +51,6 @@ def main():
 
         test.TestCase.setUp = setUp
         test.TestCase.tearDown = tearDown
-    execute_from_command_line(sys.argv)
 
 
 if __name__ == '__main__':

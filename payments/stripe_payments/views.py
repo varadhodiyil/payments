@@ -26,12 +26,12 @@ class CreatePaymentMethod(GenericAPIView):
         if request.user.is_authenticated:
             s = self.get_serializer(data=data)
             if s.is_valid():
-                status, customer = s.save(request.user)
+                _status, customer = s.save(request.user)
                 result['status'] = True
                 result['message'] = "Card Added SuccessFully!"
-                _status = "Created" if status else "Updated"
+                __status = "Created" if _status else "Updated"
                 result['result'] = "User {0} {1}".format(
-                    customer.stripe_user, _status)
+                    customer.stripe_user, __status)
                 return Response(result)
             else:
                 result['status'] = False
