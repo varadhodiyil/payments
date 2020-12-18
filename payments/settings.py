@@ -134,7 +134,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    # 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
@@ -166,7 +166,7 @@ if not os.path.exists(MEDIA_ROOT):
 
 
 
-STRIPE_API_KEY = ""
+STRIPE_API_KEY = "sk_test_51HygI3BjPTNvMQM4IlYOQPA0BAXIYGLIgH826QhHTlQQaljRQtyOAVCHt8H3IohjfN4iUvTkil799aW3E3PQVq5y00dG1X6tdW"
 
 
 django_heroku.settings(locals())
