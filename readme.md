@@ -1,7 +1,7 @@
-# sports_events
-Provides API for list, get match for betting
+# Payment Interface
+Provides API for handling Stripe payments. Uses Card as Payment method
 
-Built as Rest API, this uses `django-rest-framework` and `django`. Database used is `MySQL`. The app is documented with Swagger and redoc.
+Built as Rest API, this uses `django-rest-framework` and `django`. Database used is `SqlLite`. The app is documented with Swagger and redoc.
 
 
 # Demo URL
