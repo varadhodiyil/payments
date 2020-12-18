@@ -106,3 +106,14 @@ class TestPay(APITestCase):
 
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(resp.json(), {'status': True})
+
+    def test_create_payment_no_creds(self):
+
+        _client = self.client
+        params = {
+            'price': 'price_1Hyh1JBjPTNvMQM4Y3qfuo6o'
+        }
+        _client.credentials()
+        resp = _client.post(self.url, params)
+
+        self.assertEqual(resp.status_code, 401)
