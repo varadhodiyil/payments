@@ -26,26 +26,36 @@ def create_payment_method(card):
             type="card",
             card=card
         )
-        return True, result['id'], result['card']['last4'] , result['card']['brand']
+        return True, result['id'], result['card']['last4'], result['card']['brand']
     except Exception as e:
-        return False, e, "" , ""
+        return False, e, "", ""
 
 
 def attach_source(customer, source):
-    stripe.PaymentMethod.attach(
-        source,
-        customer=customer,
-    )
+	"""
+		Attaches source to customer
+	"""
+	stripe.PaymentMethod.attach(
+		source,
+		customer=customer,
+	)
 
 
 def set_default(customer, card_id):
-    stripe.Customer.modify(
-        customer,
-        invoice_settings={"default_payment_method": card_id},
-    )
+	"""
+		Set's payment source as default.
+	"""
+	stripe.Customer.modify(
+		customer,
+		invoice_settings={"default_payment_method": card_id},
+	)
 
 
-def create_subscription(customer, price=""):
+def create_subscription(customer, price="price_1Hyh1JBjPTNvMQM4Y3qfuo6o"):
+	"""
+		Creates subscription for user
+	"""
+
 	sub = stripe.Subscription.create(
 		customer=customer,
 		items=[

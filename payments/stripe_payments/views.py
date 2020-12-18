@@ -7,9 +7,17 @@ from payments.stripe_payments import stripe_service
 from payments.pagination import StandardResultsSetPagination
 
 class CreatePaymentMethod(GenericAPIView):
+
+	"""
+		Creates Payment Card and attaches it to Stripe Customer
+	"""
 	serializer_class = serializers.PaymentMethodSerializer
 
 	def post(self, request,*args, **kwargs):
+
+		"""
+			Valid card is required, to Save and auth token required
+		"""
 		data = request.data
 		result = dict()
 		if request.user.is_authenticated:
@@ -32,6 +40,10 @@ class CreatePaymentMethod(GenericAPIView):
 
 
 class CardDetails(ListAPIView):
+	"""
+		Returns Card details of customer, paginated
+		If not logged in, returns Empty array
+	"""
 
 	pagination_class = StandardResultsSetPagination
 	serializer_class = serializers.PaymentCardSerializer
@@ -44,9 +56,17 @@ class CardDetails(ListAPIView):
 
 class SetDefaultCard(GenericAPIView):
 
+	"""
+		Sets default card for customer.
+	"""
+
 	serializer_class = serializers.SetDefaultSerializer
 
 	def post(self , request, *args, **kwargs):
+
+		"""
+			Requires card Id as parameter.
+		"""
 		result = dict()
 		if request.user.is_authenticated:
 			s = self.get_serializer(data = request.data)

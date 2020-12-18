@@ -25,7 +25,7 @@ class LoginAPI(GenericAPIView):
         else:
             result['status'] = False
             result['errors'] = s.errors
-            return Response(result)
+            return Response(result, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ProfileAPI(GenericAPIView):

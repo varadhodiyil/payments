@@ -4,9 +4,16 @@ from rest_framework import status
 from payments.users import serializers
 
 class UserAPI(GenericAPIView):
+
+	"""
+		Registration API
+	"""
 	serializer_class = serializers.UserSerializer
 
 	def post(self , request, *args, **kwargs):
+		"""
+			Creates User, if user already exists, returns 401
+		"""
 
 		s = self.get_serializer(data=request.data)
 		result = dict()
